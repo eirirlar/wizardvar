@@ -1,0 +1,19 @@
+1) mvn clean install
+2) mvn jetty:run
+3) open brower to http://localhost:8080/config
+4) note the number under "page 1 of 3", call it 'A'
+5) click 'next'
+6) note the number under "page 2 of 3", call it 'B'. Note how A != B
+7) click 'next'
+8) note the number under "page 3 of 3", call it 'C'. Note how B == C
+9) click 'previous'
+10) note the number under "page 2 of 3", call it 'D'. Note how B == C == D
+11) click 'previous'
+12) note the number under "page 1 of 3", call it 'E'. Note how E != D
+13) click 'next' and 'previous' in random order 20 times.
+14) Note how the number under "page X of 3" does not change from E anymore.
+15) open an editor to the file "src/main/scala/com/kodeworks/snippet/ConfigDisplay.scala"
+16) observe how the number in the steps above is initialized as a wizardvar
+
+Is this how wizardvar is supposed to behave? If so, what is the recommended way of maintaining state throughout a wizard?
+
